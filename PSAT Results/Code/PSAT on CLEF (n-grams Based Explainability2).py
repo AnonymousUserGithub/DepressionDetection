@@ -522,4 +522,3 @@ for i in range(0, len(x)):
         print(i)
         
         
-Why do I have sudden
