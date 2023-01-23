@@ -87,13 +87,13 @@ Detailed examples and information on PRIMATE dataset avilable at (https://github
 
 # CLEF Dataset
 
-This collection can only be used for research purposes using the following [user agreement](https://tec.citius.usc.es/ir/code/eRisk2018_agreement.odt) and sending it to david.losada@usc.es . Visit (https://tec.citius.usc.es/ir/code/eRisk2022.html) for more details.
+This collection can only be used for research purposes using the following [user agreement](https://tec.citius.usc.es/ir/code/eRisk2018_agreement.odt) and sending it to david.losada@usc.es . Visit [eRISK webpage](https://tec.citius.usc.es/ir/code/eRisk2022.html) for more details.
 
 
 
 # PSAT
 
-All implementations related to work availale at : [Code](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Code)
+All implementations related to work available at : [Code](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Code)
 
 [PSAT Examples](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/Examples%20for%20PSAT-1.pdf). 
 
