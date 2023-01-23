@@ -87,7 +87,7 @@ Detailed examples and information on PRIMATE dataset avilable at (https://github
 
 # CLEF Dataset
 
-This collection can only be used for research purposes using the following [user agreement](https://tec.citius.usc.es/ir/code/eRisk2018_agreement.odt) and sending it to david.losada@usc.es . Visit [eRISK webpage](https://tec.citius.usc.es/ir/code/eRisk2022.html) for more details.
+This collection can only be used for research purposes using the following [user agreement](https://tec.citius.usc.es/ir/code/eRisk2018_agreement.odt) and sending it to david.losada@usc.es . Visit [eRisk webpage](https://tec.citius.usc.es/ir/code/eRisk2022.html) for more details.
 
 
 
