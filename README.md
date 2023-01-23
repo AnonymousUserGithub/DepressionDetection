@@ -93,10 +93,10 @@ This collection can only be used for research purposes using the following [user
 
 # PSAT
 
-All implimentations related to work availale at : [Code](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Code)
+All implementations related to work availale at : [Code](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Code)
 
 [PSAT Examples](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/Examples%20for%20PSAT-1.pdf). 
 
-[Detailed PSAT examples with all PHQ9 labels: Detailed_examples](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/MoreExamplesWithPSAT.pdf).
+[Detailed PSAT examples with all PHQ9 labels](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/MoreExamplesWithPSAT.pdf).
 
 [Attention visualization](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Attention%20Visulaization%20Experiment%20Snapshots)
