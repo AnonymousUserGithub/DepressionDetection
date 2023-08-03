@@ -96,7 +96,7 @@ CAMS distinguishes itself from CLEF e-Risk by offering ground truth explanations
 <img src="https://github.com/AnonymousUserGithub/DepressionDetection/blob/8ee3dd64bbb819221a2a69767937639312798fdf/gptexplation.svg
 ">
 
-
+A Scenario where PSAT underperforms ClinicalT5 attention, but because of focused attention, the generated explanations were comparable:
 
 # PSAT
 
