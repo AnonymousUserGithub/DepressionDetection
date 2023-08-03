@@ -91,6 +91,12 @@ The CAMS dataset have classes, 'No reason' (C0), 'Bias or abuse' (C1), 'Jobs and
 
 CAMS distinguishes itself from CLEF e-Risk by offering ground truth explanations. In the subsequent examples, we verify whether the highlighted words/phrases in ClinicalT5 and PSAT coincide with the ground truth explanations provided by CAMS.
 ![Alt text of the image](https://github.com/AnonymousUserGithub/DepressionDetection/blob/3404a53d65a0ff0eb394cf5e21aa29c59dc735e9/Examples%20for%20PSAT.jpg)
+![Alt text](https://github.com/AnonymousUserGithub/DepressionDetection/blob/8ee3dd64bbb819221a2a69767937639312798fdf/gptexplation.svg
+)
+<img src="https://github.com/AnonymousUserGithub/DepressionDetection/blob/8ee3dd64bbb819221a2a69767937639312798fdf/gptexplation.svg
+">
+
+
 
 # PSAT
 
