@@ -90,7 +90,7 @@ This collection can only be used for research purposes using the following [user
 The CAMS dataset have classes, 'No reason' (C0), 'Bias or abuse' (C1), 'Jobs and careers' (C2), 'Medication' (C3), 'Relationship' (C4), and 'Alienation' (C5). The dataset is presented in a <text, cause, inference> format, where ‘text’ is the user post with 'cause' referring to the labeled reason behind the mental disorder mentioned in the post, and ‘inference’ indicates the key phrases (or relevant concepts) in the post that expert annotators considered when assigning labels. For access to CAMS, please contact the author: Dr. Muskan Garg (muskanphd@gmail.com). Due to the presence of sensitive material, access to the content can be obtained via email.
 
 CAMS distinguishes itself from CLEF e-Risk by offering ground truth explanations. In the subsequent examples, we verify whether the highlighted words/phrases in ClinicalT5 and PSAT coincide with the ground truth explanations provided by CAMS.
-
+![Alt text of the image](https://github.com/AnonymousUserGithub/DepressionDetection/blob/3404a53d65a0ff0eb394cf5e21aa29c59dc735e9/Examples%20for%20PSAT.jpg)
 
 # PSAT
 
