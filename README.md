@@ -85,6 +85,11 @@ Detailed examples and information on PRIMATE dataset avilable at (https://github
 
 This collection can only be used for research purposes using the following [user agreement](https://tec.citius.usc.es/ir/code/eRisk2018_agreement.odt) and sending it to david.losada@usc.es . Visit [eRisk webpage](https://tec.citius.usc.es/ir/code/eRisk2022.html) for more details.
 
+# CAMS
+
+The CAMS dataset have classes, 'No reason' (C0), 'Bias or abuse' (C1), 'Jobs and careers' (C2), 'Medication' (C3), 'Relationship' (C4), and 'Alienation' (C5). The dataset is presented in a <text, cause, inference> format, where ‘text’ is the user post with 'cause' referring to the labeled reason behind the mental disorder mentioned in the post, and ‘inference’ indicates the key phrases (or relevant concepts) in the post that expert annotators considered when assigning labels. 
+
+CAMS distinguishes itself from CLEF e-Risk by offering ground truth explanations. In the subsequent examples, we verify whether the highlighted words/phrases in ClinicalT5 and PSAT coincide with the ground truth explanations provided by CAMS.
 
 
 # PSAT
