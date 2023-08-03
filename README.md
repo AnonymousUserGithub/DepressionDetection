@@ -98,7 +98,7 @@ Genration from ChatGPT
 )
 A Scenario where PSAT underperforms ClinicalT5 attention, but because of focused attention, the generated explanations were comparable:
 https://github.com/AnonymousUserGithub/DepressionDetection/blob/16762ae6252f6cff657c62d05e392fbb7bc37c0a/exp2camsgpt.svg
-![Alt text of the image](https://github.com/AnonymousUserGithub/DepressionDetection/blob/16762ae6252f6cff657c62d05e392fbb7bc37c0a/CAMS1.png)
+![Alt text of the image](https://github.com/AnonymousUserGithub/DepressionDetection/blob/2852a5de0506ba2dcb98a5502a45338e5be9c920/CAMS1.png)
 
 Genration from ChatGPT:
 
