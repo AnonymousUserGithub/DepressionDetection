@@ -12,7 +12,7 @@ This work is licensed under a
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 
-# PHQ9 description + 3 additional questions
+# PHQ9 description 
 
 ### PHQ-9 labels
 1) Little interest or pleasure in doing things
@@ -25,12 +25,8 @@ This work is licensed under a
 8) Moving or speaking so slowly that other people could have noticed? Or the opposite—being so fidgety or restless that you have been moving around a lot more than usual
 9) Thoughts that you would be better off dead or of hurting yourself in some way
 
-### 3 Added labels on top of PHQ9
-10) Talking disease symptoms or diagnosis
-11) Talking about antidepressant
-12) Talking about family or relatonship
 
-[PHQ9 depression ontology](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/PSAT%20Results/PHQ9%20depression%20ontology.csv) contains all 12 labels and phrases extracted using keybert with pos tags and keybart.
+[PHQ9 depression ontology](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/PSAT%20Results/PHQ9%20depression%20ontology.csv) contains all 9 labels and phrases extracted using keybert with pos tags and keybart.
 
 
 # Primate Dataset
