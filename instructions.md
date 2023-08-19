@@ -36,7 +36,7 @@ The model calculates a cosine similarity score between the phrase embeddings (se
 txt1 = kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 3), top_n=300, stop_words='english', use_mmr=True, diversity=0.7 #
 
 It is applied at the user level, i.e., for each user document, key phrases are found and stored in different files #
-
+```
 for i in range(0,len(df.Text)):   #
     print("Loop is at: ", i)
     if i<134: continue 
@@ -47,11 +47,12 @@ for i in range(0,len(df.Text)):   #
     txt = pd.DataFrame(txt1, columns =['Phrase', 'Score'])      # convert list of tuples into dataframe 
     txt.to_csv(f"{path}KeyBERT_{i}.csv")
 
+```
 
 KeyBERT Files from all users will be merged into a single file in “KeyBERT Merge Files” part of the Keyphrase Extraction-1.py.
 
 ## Merge CSV files of each user from KeyBERT. 
-
+```
 import pandas as pd
 import os
 
@@ -69,12 +70,12 @@ for i in range(0,len(files)):
             pass
 df1.to_csv(f"...\\TotalKeyBERT.csv")
 
-
+```
 ## KeyBERT + POSTags
 
 To consider the grammatical structure of the sentences, we have supplied the pos-tagged user documents to KeyBERT.
 Along with user documents, KeyphraseCountVectorizer from the keyphrase_vectorizers library in Python is supplied to the extract_keywords method instead of n_grams range to apply the method on dynamic range n_grams.
-
+```
 kw_model = KeyBERT() #load model
 vectorizer = KeyphraseCountVectorizer()  #Init default vectorizer.
 print(vectorizer.get_params())    #Print parameters
@@ -102,12 +103,12 @@ for i in range(0,len(df)):
         doc1.append(post)   
 
 
- 
+ ```
 ## KeyBART
 
 It is applied on the post level, i.e., for each post, key phrases are extracted.
 
-
+```
 keyphrases = []
 for i in range(0,len(df.Text)):  # Selects all posts of a user or one row from the dataset
     #print("Loop is at: ", i)
@@ -124,10 +125,10 @@ for i in range(0,len(df.Text)):  # Selects all posts of a user or one row from t
         if len(posts[j])>1024: continue
         keyphrases.append(generator(posts[j]))
 
-
+```
 The “ml6team/keyphrase-generation-keybart-inspec” model is considered while applying the KeyBART model.
 
-
+```
 from transformers import Text2TextGenerationPipeline, AutoModelForSeq2SeqLM, AutoTokenizer
 class KeyphraseGenerationPipeline(Text2TextGenerationPipeline):
     def __init__(self, model, keyphrase_sep_token=";", *args, **kwargs):
@@ -146,10 +147,10 @@ class KeyphraseGenerationPipeline(Text2TextGenerationPipeline):
 ## Load pipeline
 model_name = "ml6team/keyphrase-generation-keybart-inspec"
 generator = KeyphraseGenerationPipeline(model=model_name)
-
+```
 
 KeyBART does not provide any score, so the frequency for each phrase is calculated in “KeyBART Phrase Count” part of the Keyphrase Extraction-1.py.
-
+```
 import pandas as pd
 file1 = open('...\\KeyBART.txt', 'r')
 Lines = file1.readlines()
@@ -168,12 +169,12 @@ for k,v in keyphrases_occurrence.items():  # Faster approach to convert dictiona
     i=i+1
 df_keyphrases_occurrence.to_csv("...\\KeyBART1.csv")   
 value = {i for i in keyphrases_occurrence if keyphrases_occurrence[i]==1}
-
+```
 
 ## Filtration
 Keyphrases from KeyBART, KeyBERT, KeyBERT POS” of the Keyphrase Extraction-1.py file place all top 3000 phrases from three algorithms into a single file.
 
-
+```
 import pandas as pd
 df = pd.DataFrame(columns=['Bigram','Score'])
 df1 = pd.read_csv("...\\KeyBERT.csv")
@@ -203,12 +204,14 @@ for i in range(0,len(df)):
             df1.at[i,'Score'] = df.Score[i]
 
 df1.to_csv("...\\Total_KeyPhrases.csv") 
-
+```
 In the last step, we will check for n-grams in the extracted keyphrases, i.e., the phrases having continuous words in a sentence. This is done in the “Extract n-grams Keyphrases from Total_KeyPhrases” part of the Keyphrase Extraction-1.py.
-import pandas as pd
+
 
 ## It is searching for n-grams i.e. it considers all words of a keyphrase are continuous in the text.
 
+```
+import pandas as pd
 df_keyphrase = pd.read_csv("...\\Total_KeyPhrases.csv") 
 #df_keyphrase.drop(['Unnamed: 0'], inplace = True, axis=1)
 bigrams = list(set(df_keyphrase.Bigram))   # Removing duplicate phrases. 
@@ -233,7 +236,7 @@ keyphrases = list(set(keyphrases))
 keyphrases = [word for word in keyphrases if word not in (stop_words)]   # (4790 keyphrases)
 
 df1.to_csv("...\\Total_KeyPhrases.csv") 
-
+```
 
 PHQ-9 Depression Ontology: Keyphrases received in the filtration step are mapped to the PHQ-9 questionnaire manually.
 Each question of the PHQ-9 questionnaire is taken as a category in the ontology, i.e., nine classes for the PHQ-9 questionnaire.
@@ -245,7 +248,7 @@ The "Talking disease symptoms, diagnosis" class contains the largest number of p
 Keyphrase Tagging-1.py will be used for the purpose. 
 User posts will be tokenized, and remove extra spaces or quotation marks.
 
-
+```
 all_users_posts= []
 for i in range(0,len(df.Text)):  # df[df.columns[3]]
     #if i>0: break
@@ -260,11 +263,12 @@ for i in range(0,len(df.Text)):  # df[df.columns[3]]
         doc.append(post)  
         #doc1="\n".join(doc)
     all_users_posts.append(doc)
+```
 
 Next, we check user posts for the available phrases from the Total_KeyPhrases.csv file created in Keyphrase Extraction-1.py and tag them.
 
 # Embed each user document with n-grams(keyphrases) and save them to Primate.csv. Only n-grams(keyphrases) which are found in posts checked in previous loop are used in embedding.
-
+```
 list1 = []    
 for i, one_user_posts in enumerate(all_users_posts): 
     print(i)
@@ -280,14 +284,14 @@ df.insert(loc = 2, column = 'Text_Phrases', value=0)
 df['Text_Phrases'] = df['Text_Phrases'].astype('object')
 df['Text_Phrases'] = list1
 df.to_csv("...\\Primate_pharse_tagged.csv") 
-
+```
 
 
 ## Phrase Embedding:  
 Available word embeddings contain only a few phrases. So we trained our phrase embeddings using the phrase embedded dataset in this case Primate. Phrase Embedding-3.py carries all code required for the purpose. 
 
 Import required files including the Word2Vec model from the Gensim library.
-
+```
 from gensim.models import Word2Vec
 import pandas as pd
 from ast import literal_eval
@@ -298,13 +302,13 @@ sentences= df.Text_Phrases
 sentences = [x.split(" ") for x in sentences if str(x) != 'nan']  # For non-nan strings, convert string of phrases into list of phrases for each user.
 
 
-# Sentences is list of lists i.e. for each user we have a list of phrases.
+#Sentences is list of lists i.e. for each user we have a list of phrases.
 model = Word2Vec(sentences, vector_size=50, min_count=1, workers=6, sg=1)
-# summarize the loaded model
+#summarize the loaded model
 print(model)
-# summarize vocabulary
+#summarize vocabulary
 
-# Calculated vectors will be stored back in a .bin file.
+#Calculated vectors will be stored back in a .bin file.
 
 words=[]
 words = list(model.wv.key_to_index)
@@ -314,15 +318,15 @@ print(model.wv.get_vecattr("clear", "count"))
 
 X = model.wv[model.wv.key_to_index]
 
-# Save model
+#Save model
 
 model.save('...\\phrase_embedding.bin')
-
+```
 
 ## PSAT Model: 
 PSAT-4(Primate dataset explainable).py contains various modules executed by the proposed PSAT model. This file is for the Primate dataset which is a multilabel dataset.
 Primate dataset is already provided as a train and test split. The first step is to import the train.csv and test.csv. Then the label will be encoded into vector form.
-
+```
 df1=pd.read_csv("...\\Train.csv")
 x_train = df1['Text_Phrases'].values
 y_train = df1.loc[:,'y'].apply(lambda x : literal_eval(x)) 
@@ -349,18 +353,18 @@ for i in range(0,len(y_test)):     # arranging each question in unique column.
             ytest.at[i,j] = 1 
         else: ytest.at[i,j] = 0
 y_test = np.asarray(ytest).astype('float32')
-
+```
 Load the PHQ-9 depression ontology.
 
-
+```
 df_ontology = pd.read_csv("...\\Depression Ontology.csv")  # Diagnosed users are appended in last.
 #df_ontology.drop(['Unnamed: 0'], inplace = True, axis=1)
-
+```
 Import and load the phrase vectors from phrase_embedding.bin (developed in Phrase Embedding.py) into embedding_matrix.
 
 # Reading from custom trained file Word2Vec_phrase50.bin so binary=True.
 
-
+```
 model = Word2Vec.load('...\\phrase_embedding.bin')
 vocab = list(model.wv.key_to_index)
 from numpy import zeros
@@ -471,7 +475,7 @@ display(HTML(html_text))
 Func = open(f"...\\SelfAttention_Primate_Test{idx}_Phrases_CustomEmbedding.html","w")  # Print 
 Func.write(html_text)
 Func.close()
-
+```
 The user post id and attention layer should be passed in the visualize_attention() function (PHQ-9 Class Visualizer), like 140 and cross_attention0 passed in the following example.
 visualize_attention(140,'cross_attention0')
 
