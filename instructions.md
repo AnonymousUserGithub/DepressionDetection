@@ -2,21 +2,22 @@
 ## Requirements
   	Package
          Python 3.8
-  Word Embedding’s
-  Datasets
-·         CLEF eRisk
-·         Primate
-·         CAMS
+    Word Embedding’s
+           Datasets
+             CLEF eRisk
+             Primate
+             CAMS
 
 
 
 ## Working
 
 The example is presented for the PRIMATE dataset. We have four files:
-Keyphrase Extraction-1.py
-Keyphrase Tagging-2.py
-Phrase Embedding-3.py
-PSAT-4(Primate dataset explainable).py
+
+Keyphrase Extraction-1.py\\
+Keyphrase Tagging-2.py\\
+Phrase Embedding-3.py\\
+PSAT-4(Primate dataset explainable).py\\
 
 
 The key phrases with TF-IDF scores greater than 0.65 assigned by three phrase extraction algorithms, KeyBERT, KeyBART, and KeyBART + POSTags(Keyphrase Extraction-1.py), are examined manually for their relevance to the depression symptoms. The same process was followed for each dataset to develop the respective phrase list. So we will have four phrase lists in total.
@@ -31,11 +32,12 @@ The model first creates BERT embeddings of the text documents. For this model, a
 In the next step, BERT phrase embeddings for predefined length n-grams (static) are found.
 The model calculates a cosine similarity score between the phrase embeddings (second step) and the document embeddings (first step) to find the best key phrases.
 (1,3) is supplied as n-grams to the extract_keywords method of the KeyBERT class in the Keybert library of Python.
-txt1 = kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 3), top_n=300, stop_words='english', use_mmr=True, diversity=0.7
 
-It is applied at the user level, i.e., for each user document, key phrases are found and stored in different files
+txt1 = kw_model.extract_keywords(doc, keyphrase_ngram_range=(1, 3), top_n=300, stop_words='english', use_mmr=True, diversity=0.7 #
 
-for i in range(0,len(df.Text)):   
+It is applied at the user level, i.e., for each user document, key phrases are found and stored in different files #
+
+for i in range(0,len(df.Text)):   #
     print("Loop is at: ", i)
     if i<134: continue 
     posts = nltk.sent_tokenize(df.Text[i])   print("length of posts is: ", len(posts))      
@@ -73,12 +75,12 @@ df1.to_csv(f"...\\TotalKeyBERT.csv")
 To consider the grammatical structure of the sentences, we have supplied the pos-tagged user documents to KeyBERT.
 Along with user documents, KeyphraseCountVectorizer from the keyphrase_vectorizers library in Python is supplied to the extract_keywords method instead of n_grams range to apply the method on dynamic range n_grams.
 
-kw_model = KeyBERT()
-vectorizer = KeyphraseCountVectorizer()  # Init default vectorizer.
-print(vectorizer.get_params())    # Print parameters
+kw_model = KeyBERT() #load model
+vectorizer = KeyphraseCountVectorizer()  #Init default vectorizer.
+print(vectorizer.get_params())    #Print parameters
 document_keyphrase_matrix = vectorizer.fit_transform(doc1).toarray()
 print(document_keyphrase_matrix)
-keyphrases = vectorizer.get_feature_names_out() # After learning the keyphrases, they can be returned.
+keyphrases = vectorizer.get_feature_names_out() #After learning the keyphrases, they can be returned.
 print(keyphrases)
 
 ## Maximal Marginal Relevance ---- Minimize redundancy and maximize the diversity of results
@@ -87,7 +89,7 @@ txt = kw_model.extract_keywords(doc1, vectorizer=KeyphraseCountVectorizer(),top_
 
 It is applied at the user level, i.e., for each user document, key phrases are found.
 
-df = pd.read_csv("...\\Primate_Complete.csv")  
+df = pd.read_csv("...\\Primate_Complete.csv")  #Read Primate
 df.info()
 #df['Text'] = df['Text'].str.replace("[^a-zA-Z#]", " ") #remove quotations
 df['Text']= df['Text'].apply(lambda x : " ".join([w.lower() for w in x.split()]))
@@ -283,6 +285,7 @@ df.to_csv("...\\Primate_pharse_tagged.csv")
 
 ## Phrase Embedding:  
 Available word embeddings contain only a few phrases. So we trained our phrase embeddings using the phrase embedded dataset in this case Primate. Phrase Embedding-3.py carries all code required for the purpose. 
+
 Import required files including the Word2Vec model from the Gensim library.
 
 from gensim.models import Word2Vec
@@ -348,8 +351,10 @@ for i in range(0,len(y_test)):     # arranging each question in unique column.
 y_test = np.asarray(ytest).astype('float32')
 
 Load the PHQ-9 depression ontology.
+
+
 df_ontology = pd.read_csv("...\\Depression Ontology.csv")  # Diagnosed users are appended in last.
-# df_ontology.drop(['Unnamed: 0'], inplace = True, axis=1)
+#df_ontology.drop(['Unnamed: 0'], inplace = True, axis=1)
 
 Import and load the phrase vectors from phrase_embedding.bin (developed in Phrase Embedding.py) into embedding_matrix.
 
@@ -417,8 +422,8 @@ concept_seq8 = embedding_layer1(concept_indices_padded[8])   # embedding layer
 concept_seq9 = embedding_layer1(concept_indices_padded[9])   # embedding layer
 concept_seq10 = embedding_layer1(concept_indices_padded[10])   # embedding layer
 concept_seq11 = embedding_layer1(concept_indices_padded[11])   # embedding layer
-# concept_seq12 = embedding_layer1(concept_indices_padded[12])   # embedding layer
-# concept_seq13= embedding_layer1(concept_indices_padded[13])   # embedding layer
+#concept_seq12 = embedding_layer1(concept_indices_padded[12])   # embedding layer
+#concept_seq13= embedding_layer1(concept_indices_padded[13])   # embedding layer
 print("word_sequences",concept_seq0.shape)
 
 ''''''''''''''''''''''' Self-Attention '''''''''''''''''''''''
@@ -430,7 +435,7 @@ normalized_post = LayerNormalization(axis=1) (addition)
 print("normalized_post" , normalized_post.shape)
 
 '''''''''''''''''''''' Cross Attention  '''''''''''''''''''''
-# Attention()[query, value/key]
+#Attention()[query, value/key]
 cross_attention_output0, cross_attention_score0 = Attention(name="cross_attention0")([normalized_post,concept_seq0],  return_attention_scores=True, training = True)
 print("cross_attention_output0", cross_attention_output0.shape, "cross_attention_seq0", cross_attention_score0.shape)
 cross_attention_output1, cross_attention_score1 = Attention(name="cross_attention1")([normalized_post,concept_seq1],  return_attention_scores=True, training = True)
@@ -460,8 +465,9 @@ history=model.fit(x_train_indices_padded, y_train, validation_split= 0.2, epochs
 In the next step, various multi-label metrics will be calculated in the “Multi-Label Metrics” part of the file.
 “Attention Visualization” will create an HTML file highlighting the phrases of a user post based on the attention score assigned to them by different attention layers. 
 display(HTML(html_text))
-## Uncomment below line for Cross attention layers visualization in loop
-# Func = open(f"...\\PSAT_Primate_Phrases{idx}_CustomEmbedding_Category{category}.html","w")  
+ Uncomment below line for Cross attention layers visualization in loop
+ 
+#Func = open(f"...\\PSAT_Primate_Phrases{idx}_CustomEmbedding_Category{category}.html","w")  
 Func = open(f"...\\SelfAttention_Primate_Test{idx}_Phrases_CustomEmbedding.html","w")  # Print 
 Func.write(html_text)
 Func.close()
