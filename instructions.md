@@ -14,10 +14,10 @@
 
 The example is presented for the PRIMATE dataset. We have four files:
 
-Keyphrase Extraction-1.py\\
-Keyphrase Tagging-2.py\\
-Phrase Embedding-3.py\\
-PSAT-4(Primate dataset explainable).py\\
+Keyphrase Extraction-1.py \\
+Keyphrase Tagging-2.py \\
+Phrase Embedding-3.py \\
+PSAT-4(Primate dataset explainable).py \\
 
 
 The key phrases with TF-IDF scores greater than 0.65 assigned by three phrase extraction algorithms, KeyBERT, KeyBART, and KeyBART + POSTags(Keyphrase Extraction-1.py), are examined manually for their relevance to the depression symptoms. The same process was followed for each dataset to develop the respective phrase list. So we will have four phrase lists in total.
