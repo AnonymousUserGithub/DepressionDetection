@@ -113,3 +113,7 @@ All implementations related to work available at : [Code](https://github.com/Ano
 [Detailed PSAT examples with all PHQ9 labels](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/MoreExamplesWithPSAT.pdf).
 
 [More Attention visualizations for CLEF and PRIMATE Dataset snapshots](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Attention%20Visulaization%20Experiment%20Snapshots)
+
+# Instructions : 
+
+[Find Instructions here to run code](https://github.com/AnonymousUserGithub/DepressionDetection/blob/b52ea35272a2d339cb25c76a74c904cde5615d96/instructions.md)
