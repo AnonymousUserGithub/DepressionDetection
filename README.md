@@ -12,6 +12,10 @@ This work is licensed under a
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 
+# Instructions To Run Py files
+
+[Find Instructions here to run code](https://github.com/AnonymousUserGithub/DepressionDetection/blob/b52ea35272a2d339cb25c76a74c904cde5615d96/instructions.md)
+
 # PHQ9 description 
 
 ### PHQ-9 labels
@@ -114,6 +118,3 @@ All implementations related to work available at : [Code](https://github.com/Ano
 
 [More Attention visualizations for CLEF and PRIMATE Dataset snapshots](https://github.com/AnonymousUserGithub/DepressionDetection/tree/main/PSAT%20Results/Attention%20Visulaization%20Experiment%20Snapshots)
 
-# Instructions To Run Py files
-
-[Find Instructions here to run code](https://github.com/AnonymousUserGithub/DepressionDetection/blob/b52ea35272a2d339cb25c76a74c904cde5615d96/instructions.md)
