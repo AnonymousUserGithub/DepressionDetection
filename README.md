@@ -11,6 +11,25 @@ This work is licensed under a
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
+# Software
+-  Programming Language: Python
+-  Libraries :
+  -  PyTorch: This is used to build and train the neural network models.
+  -  Transformers (Hugging Face): This is used to leverage pre-trained models like BERT and customize them for PSAT.
+  -  NumPy: For numerical computations.
+  -  pandas: For data manipulation and analysis.
+  -  scikit-learn: This is for evaluation metrics and additional preprocessing.
+  -  NLTK: This is for natural language processing tasks, including part-of-speech tagging.
+  -  SNOMED-CT API: This is used to access clinical terminology and validate keyphrases.
+  -  KeyBERT: For keyphrase extraction.
+
+# Hardware
+-  GPUs: Two NVIDIA Tesla V100 GPUs (16GB each) will be used to train the models.
+-  CPUs: Intel Xeon processors for general computation tasks.
+-  Memory: 128GB RAM to handle large datasets and model training processes.
+-  Storage: SSD storage for faster data access and processing.
+
+
 
 # Instructions To Run Py files
 
@@ -30,7 +49,7 @@ This work is licensed under a
 9) Thoughts that you would be better off dead or of hurting yourself in some way
 
 
-[PHQ9 depression ontology](https://github.com/AnonymousUserGithub/DepressionDetection/blob/main/PSAT%20Results/PHQ9%20depression%20ontology.csv) contains all 9 labels and phrases extracted using keybert with pos tags and keybart.
+[PHQ9 depression ontology](PHQ9Questions_depression_ontology.csv) contains all 9 labels and phrases extracted using keybert with pos tags and keybart.
 
 
 # Primate Dataset
